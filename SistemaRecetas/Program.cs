@@ -205,10 +205,6 @@ namespace SistemaRecetas {
             }
         }
 
-        // ============================================================
-        // === MÉTODOS AUXILIARES DE INTERFAZ ===
-        // ============================================================
-
         static void EscribirColor(string texto, ConsoleColor color) {
             Console.ForegroundColor = color;
             Console.Write(texto);
@@ -266,9 +262,7 @@ namespace SistemaRecetas {
             }
         }
 
-        // ============================================================
         // === FUNCIONES DEL MENÚ ===
-        // ============================================================
 
         static void MostrarRecetasDisponibles(GestorRecetas gestor) {
             EscribirColor("\n--- 📋 RECETAS DISPONIBLES ---\n", ColorTitulo);
