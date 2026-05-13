@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using SistemaRecetas.Gestores;
+﻿using SistemaRecetas.Gestores;
 using SistemaRecetas.Modelos;
 using SistemaRecetas.Servicios;
 
 namespace SistemaRecetas {
     class Program {
+        // === Paleta de colores temática de cocina ===
+        static readonly ConsoleColor ColorTitulo = ConsoleColor.Yellow;        
+        static readonly ConsoleColor ColorExito = ConsoleColor.Green;          
+        static readonly ConsoleColor ColorError = ConsoleColor.Red;            
+        static readonly ConsoleColor ColorInfo = ConsoleColor.Cyan;            
+        static readonly ConsoleColor ColorMenu = ConsoleColor.White;           
+        static readonly ConsoleColor ColorEntrada = ConsoleColor.Magenta;      
+        static readonly ConsoleColor ColorReceta = ConsoleColor.DarkYellow;    
+        static readonly ConsoleColor ColorPais = ConsoleColor.DarkCyan;        
+
         static void Main(string[] args) {
+            // Configurar consola
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.Title = "🍳 Sistema de Gestión de Recetas de Cocina";
+
             // === Inicialización ===
             var gestor = new GestorRecetas();
             var exportador = new ExportadorTxt();
@@ -131,38 +143,32 @@ namespace SistemaRecetas {
             gestor.AgregarReceta(new Receta("Pretzel", "Chef Weber", 40));
             gestor.AgregarReceta(new Receta("Schnitzel", "Chef Becker", 35));
 
-            Console.WriteLine("SISTEMA DE GESTIÓN DE RECETAS DE COCINA\n");
+            // === Encabezado de bienvenida ===
+            MostrarEncabezado();
 
             // === Registro de Usuario ===
-            Console.WriteLine("--- REGISTRO DE USUARIO ---");
+            EscribirColor("\n--- REGISTRO DE USUARIO ---\n", ColorTitulo);
             string nombreUsuario = LeerEntradaNoVacia("Por favor, ingrese su nombre de usuario: ");
             var usuario = servicio.RegistrarUsuario(nombreUsuario);
-            Console.WriteLine($"Usuario '{nombreUsuario}' registrado.");
-            Console.WriteLine($"¡Bienvenido/a, {nombreUsuario}!\n");
+            EscribirColor($"✓ Usuario '{nombreUsuario}' registrado.\n", ColorExito);
+            EscribirColor($"¡Bienvenido/a, {nombreUsuario}! 🍴\n\n", ColorInfo);
 
             string primerLibro = LeerEntradaNoVacia("Ingrese un nombre para su primer libro de recetas: ");
             usuario.CrearLibroRecetas(primerLibro);
-            Console.WriteLine($"Libro '{primerLibro}' creado exitosamente.\n");
+            EscribirColor($"✓ Libro '{primerLibro}' creado exitosamente.\n", ColorExito);
 
             string libroActual = primerLibro;
             bool salir = false;
 
             // === Menú Principal ===
             while (!salir) {
-                Console.WriteLine("\n--- MENÚ PRINCIPAL ---");
-                Console.WriteLine($"Libro actual: '{libroActual}' ({usuario.ObtenerLibro(libroActual)?.Count ?? 0} recetas)\n");
-                Console.WriteLine("  1. Mostrar Recetas disponibles");
-                Console.WriteLine("  2. Ordenar libro actual (QuickSort o MergeSort)");
-                Console.WriteLine("  3. Búsqueda binaria en catálogo");
-                Console.WriteLine("  4. Crear nuevo libro de recetas");
-                Console.WriteLine("  5. Cambiar de libro actual");
-                Console.WriteLine("  6. Ver mis libros");
-                Console.WriteLine("  7. Exportar mis libros a archivo .txt");
-                Console.WriteLine("  8. Salir");
+                MostrarMenu(usuario, libroActual);
+                Console.ForegroundColor = ColorEntrada;
                 Console.Write("Seleccione una opción: ");
+                Console.ResetColor();
 
                 if (!int.TryParse(Console.ReadLine(), out int opcion)) {
-                    Console.WriteLine("Opción no válida.");
+                    EscribirColor("⚠ Opción no válida.\n", ColorError);
                     continue;
                 }
 
@@ -183,66 +189,124 @@ namespace SistemaRecetas {
                         libroActual = CambiarDeLibro(usuario, libroActual);
                         break;
                     case 6:
-                        usuario.MostrarLibros();
+                        MostrarLibrosUsuario(usuario);
                         break;
                     case 7:
                         ExportarLibros(exportador, usuario);
                         break;
                     case 8:
                         salir = true;
-                        Console.WriteLine("¡Hasta luego!");
+                        EscribirColor("\n¡Hasta luego! Buen provecho 🍽\n", ColorTitulo);
                         break;
                     default:
-                        Console.WriteLine("Opción no válida.");
+                        EscribirColor("⚠ Opción no válida.\n", ColorError);
                         break;
                 }
             }
+        }
+
+        // ============================================================
+        // === MÉTODOS AUXILIARES DE INTERFAZ ===
+        // ============================================================
+
+        static void EscribirColor(string texto, ConsoleColor color) {
+            Console.ForegroundColor = color;
+            Console.Write(texto);
+            Console.ResetColor();
+        }
+
+        static void MostrarEncabezado() {
+            Console.ForegroundColor = ColorTitulo;
+            Console.WriteLine("╔══════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                                                          ║");
+            Console.WriteLine("║   🍳  SISTEMA DE GESTIÓN DE RECETAS DE COCINA  🍳        ║");
+            Console.WriteLine("║                                                          ║");
+            Console.WriteLine("╚══════════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+        }
+
+        static void MostrarMenu(Usuario usuario, string libroActual) {
+            int totalRecetas = usuario.ObtenerLibro(libroActual)?.Count ?? 0;
+
+            Console.WriteLine();
+            EscribirColor("╔══════════════ MENÚ PRINCIPAL ══════════════╗\n", ColorTitulo);
+            Console.ForegroundColor = ColorInfo;
+            Console.WriteLine($"  📖 Libro actual: '{libroActual}' ({totalRecetas} recetas)");
+            Console.ResetColor();
+            EscribirColor("╠════════════════════════════════════════════╣\n", ColorTitulo);
+
+            Console.ForegroundColor = ColorMenu;
+            Console.WriteLine("  1. 📋 Mostrar Recetas disponibles");
+            Console.WriteLine("  2. 🔄 Ordenar libro actual (QuickSort/MergeSort)");
+            Console.WriteLine("  3. 🔍 Búsqueda binaria en catálogo");
+            Console.WriteLine("  4. ➕ Crear nuevo libro de recetas");
+            Console.WriteLine("  5. 🔀 Cambiar de libro actual");
+            Console.WriteLine("  6. 📚 Ver mis libros");
+            Console.WriteLine("  7. 💾 Exportar mis libros a archivo .txt");
+            Console.WriteLine("  8. 🚪 Salir");
+            Console.ResetColor();
+
+            EscribirColor("╚════════════════════════════════════════════╝\n", ColorTitulo);
         }
 
         // === Método auxiliar para validar entradas no vacías ===
         static string LeerEntradaNoVacia(string mensaje) {
             string entrada;
             while (true) {
+                Console.ForegroundColor = ColorEntrada;
                 Console.Write(mensaje);
+                Console.ResetColor();
                 entrada = Console.ReadLine();
 
                 if (!string.IsNullOrWhiteSpace(entrada)) {
                     return entrada.Trim();
                 }
 
-                Console.WriteLine("⚠ Error: El campo no puede estar vacío. Intente de nuevo.");
+                EscribirColor("⚠ Error: El campo no puede estar vacío. Intente de nuevo.\n", ColorError);
             }
         }
 
+        // ============================================================
+        // === FUNCIONES DEL MENÚ ===
+        // ============================================================
+
         static void MostrarRecetasDisponibles(GestorRecetas gestor) {
-            Console.WriteLine("\n--- RECETAS DISPONIBLES ---");
+            EscribirColor("\n--- 📋 RECETAS DISPONIBLES ---\n", ColorTitulo);
+
             if (gestor.RecetasDisponibles.Count == 0) {
-                Console.WriteLine("No hay recetas disponibles.");
+                EscribirColor("No hay recetas disponibles.\n", ColorError);
                 return;
             }
+
+            Console.ForegroundColor = ColorReceta;
             for (int i = 0; i < gestor.RecetasDisponibles.Count; i++)
-                Console.WriteLine($"  {i + 1}. {gestor.RecetasDisponibles[i].ToString()}");
+                Console.WriteLine($"  {i + 1,3}. {gestor.RecetasDisponibles[i].ToString()}");
+            Console.ResetColor();
+
+            EscribirColor($"\nTotal: {gestor.RecetasDisponibles.Count} recetas en el catálogo.\n", ColorInfo);
         }
 
         static void OrdenarLibroActual(ServicioRecetas servicio, Usuario usuario, string libroActual) {
+            Console.ForegroundColor = ColorEntrada;
             Console.Write("Elija algoritmo (quick/merge): ");
+            Console.ResetColor();
             string tipo = Console.ReadLine();
 
             var libro = usuario.ObtenerLibro(libroActual);
             if (libro == null || libro.Count == 0) {
-                Console.WriteLine("El libro está vacío. No hay nada que ordenar.");
+                EscribirColor("⚠ El libro está vacío. No hay nada que ordenar.\n", ColorError);
                 return;
             }
 
             if (string.Equals(tipo, "quick", StringComparison.OrdinalIgnoreCase)) {
                 servicio.Gestor.QuickSort(libro);
-                Console.WriteLine("✓ Libro ordenado con QuickSort.");
+                EscribirColor("✓ Libro ordenado con QuickSort.\n", ColorExito);
             } else if (string.Equals(tipo, "merge", StringComparison.OrdinalIgnoreCase)) {
                 var ordenada = servicio.Gestor.MergeSort(libro);
                 usuario.LibrosRecetas[libroActual] = ordenada;
-                Console.WriteLine("✓ Libro ordenado con MergeSort.");
+                EscribirColor("✓ Libro ordenado con MergeSort.\n", ColorExito);
             } else {
-                Console.WriteLine("Algoritmo no válido.");
+                EscribirColor("⚠ Algoritmo no válido. Use 'quick' o 'merge'.\n", ColorError);
                 return;
             }
 
@@ -250,10 +314,13 @@ namespace SistemaRecetas {
             foreach (var r in usuario.ObtenerLibro(libroActual))
                 totalMinutos += r.TiempoMinutos;
 
-            Console.WriteLine($"\nTiempo total de recetas en '{libroActual}': {totalMinutos} minutos");
-            Console.WriteLine("Recetas ordenadas:");
+            EscribirColor($"\n⏱ Tiempo total de recetas en '{libroActual}': {totalMinutos} minutos\n", ColorInfo);
+            EscribirColor("Recetas ordenadas:\n", ColorTitulo);
+
+            Console.ForegroundColor = ColorReceta;
             foreach (var r in usuario.ObtenerLibro(libroActual))
                 Console.WriteLine($"   - {r.ToString()}");
+            Console.ResetColor();
         }
 
         static void BusquedaBinariaEnCatalogo(GestorRecetas gestor, Usuario usuario, string libroActual) {
@@ -262,26 +329,32 @@ namespace SistemaRecetas {
             int indice = gestor.BusquedaBinaria(nombre);
 
             if (indice == -1) {
-                Console.WriteLine($"No se encontró la receta '{nombre}' en el catálogo.");
+                EscribirColor($"✗ No se encontró la receta '{nombre}' en el catálogo.\n", ColorError);
                 return;
             }
 
-            Console.WriteLine("\nReceta encontrada:");
-            for (int i = 0; i < gestor.RecetasDisponibles.Count; i++)
-                Console.WriteLine($"  {i + 1}. {gestor.RecetasDisponibles[i].ToString()}");
+            EscribirColor("\n✓ Receta encontrada. Catálogo completo:\n", ColorExito);
 
+            Console.ForegroundColor = ColorReceta;
+            for (int i = 0; i < gestor.RecetasDisponibles.Count; i++)
+                Console.WriteLine($"  {i + 1,3}. {gestor.RecetasDisponibles[i].ToString()}");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ColorEntrada;
             Console.Write($"\nIngrese el índice de la receta para agregarla a '{libroActual}' (0 para cancelar): ");
+            Console.ResetColor();
+
             if (int.TryParse(Console.ReadLine(), out int indiceElegido)) {
                 if (indiceElegido == 0) {
-                    Console.WriteLine("Operación cancelada.");
+                    EscribirColor("Operación cancelada.\n", ColorInfo);
                     return;
                 }
                 if (indiceElegido >= 1 && indiceElegido <= gestor.RecetasDisponibles.Count) {
                     var receta = gestor.RecetasDisponibles[indiceElegido - 1];
                     usuario.AgregarRecetaALibro(libroActual, receta);
-                    Console.WriteLine($"✓ Receta '{receta.Nombre}' agregada a '{libroActual}'.");
+                    EscribirColor($"✓ Receta '{receta.Nombre}' agregada a '{libroActual}'.\n", ColorExito);
                 } else {
-                    Console.WriteLine("Índice fuera de rango.");
+                    EscribirColor("⚠ Índice fuera de rango.\n", ColorError);
                 }
             }
         }
@@ -290,38 +363,62 @@ namespace SistemaRecetas {
             string nuevo = LeerEntradaNoVacia("Ingrese el nombre del nuevo libro: ");
             try {
                 usuario.CrearLibroRecetas(nuevo);
-                Console.WriteLine($"✓ Libro '{nuevo}' creado.");
+                EscribirColor($"✓ Libro '{nuevo}' creado.\n", ColorExito);
                 return nuevo;
             } catch (InvalidOperationException ex) {
-                Console.WriteLine($"Error: {ex.Message}");
+                EscribirColor($"✗ Error: {ex.Message}\n", ColorError);
                 return libroActual;
             }
         }
 
         static string CambiarDeLibro(Usuario usuario, string libroActual) {
             if (usuario.LibrosRecetas.Count == 0) {
-                Console.WriteLine("No tienes libros.");
+                EscribirColor("⚠ No tienes libros.\n", ColorError);
                 return libroActual;
             }
 
-            Console.WriteLine("\nLibros disponibles:");
+            EscribirColor("\n📚 Libros disponibles:\n", ColorTitulo);
+            Console.ForegroundColor = ColorInfo;
             foreach (var nombre in usuario.LibrosRecetas.Keys)
                 Console.WriteLine($"  - {nombre}");
+            Console.ResetColor();
 
             string elegido = LeerEntradaNoVacia("Ingrese el nombre del libro al que desea cambiar: ");
 
             if (usuario.LibrosRecetas.ContainsKey(elegido)) {
-                Console.WriteLine($"✓ Libro actual cambiado a '{elegido}'.");
+                EscribirColor($"✓ Libro actual cambiado a '{elegido}'.\n", ColorExito);
                 return elegido;
             }
-            Console.WriteLine("El libro no existe.");
+            EscribirColor("✗ El libro no existe.\n", ColorError);
             return libroActual;
+        }
+
+        static void MostrarLibrosUsuario(Usuario usuario) {
+            if (usuario.LibrosRecetas.Count == 0) {
+                EscribirColor("⚠ No tienes libros de recetas.\n", ColorError);
+                return;
+            }
+
+            EscribirColor("\n--- 📚 MIS LIBROS DE RECETAS ---\n", ColorTitulo);
+
+            foreach (var libro in usuario.LibrosRecetas) {
+                EscribirColor($"\n📖 Libro: {libro.Key} ({libro.Value.Count} recetas)\n", ColorPais);
+
+                if (libro.Value.Count == 0) {
+                    EscribirColor("   (Vacío)\n", ColorError);
+                } else {
+                    Console.ForegroundColor = ColorReceta;
+                    foreach (var receta in libro.Value)
+                        Console.WriteLine($"   - {receta.ToString()}");
+                    Console.ResetColor();
+                }
+            }
         }
 
         static void ExportarLibros(ExportadorTxt exportador, Usuario usuario) {
             string ruta = $"LibrosRecetas_{usuario.Nombre}.txt";
             exportador.ExportarATxt(usuario, ruta);
-            Console.WriteLine($"✓ Archivo exportado a: {ruta}");
+            EscribirColor($"✓ Archivo exportado a: {ruta}\n", ColorExito);
         }
     }
 }
