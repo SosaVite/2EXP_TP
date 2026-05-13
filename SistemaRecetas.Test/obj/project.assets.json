@@ -1708,6 +1708,16 @@
         "build": {
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "SistemaRecetas/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SistemaRecetas.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaRecetas.dll": {}
+        }
       }
     }
   },
@@ -5497,11 +5507,17 @@
         "xunit.runner.visualstudio.2.5.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "SistemaRecetas/1.0.0": {
+      "type": "project",
+      "path": "../SistemaRecetas/SistemaRecetas.csproj",
+      "msbuildProject": "../SistemaRecetas/SistemaRecetas.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 17.8.0",
+      "SistemaRecetas >= 1.0.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
       "xunit.runner.visualstudio >= 2.5.3"
@@ -5514,9 +5530,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\SistemaRecetas.Test.csproj",
-      "projectName": "SistemaRecetas.Test",
-      "projectPath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\SistemaRecetas.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj",
+      "projectName": "SistemaGestionRecetas.Tests",
+      "projectPath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj",
       "packagesPath": "C:\\Users\\Alumnos\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\obj\\",
       "projectStyle": "PackageReference",
@@ -5539,7 +5555,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas\\SistemaRecetas.csproj": {
+              "projectPath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas\\SistemaRecetas.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
