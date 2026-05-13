@@ -3,6 +3,9 @@
   "WorkspaceRootPath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4A13C8ED-1E73-461C-B970-5AF535136A8D}|..\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj|c:\\users\\alumnos\\documents\\examenparcialp2\\sistemarecetas.test\\gestorrecetastests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4A13C8ED-1E73-461C-B970-5AF535136A8D}|..\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj|c:\\users\\alumnos\\documents\\examenparcialp2\\sistemarecetas.test\\usuariotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -10,9 +13,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A13C8ED-1E73-461C-B970-5AF535136A8D}|..\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj|c:\\users\\alumnos\\documents\\examenparcialp2\\sistemarecetas.test\\serviciorecetastests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A13C8ED-1E73-461C-B970-5AF535136A8D}|..\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj|c:\\users\\alumnos\\documents\\examenparcialp2\\sistemarecetas.test\\gestorrecetastests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UsuarioTests.cs",
               "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\UsuarioTests.cs",
               "RelativeDocumentMoniker": "..\\SistemaRecetas.Test\\UsuarioTests.cs",
@@ -39,7 +39,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ServicioRecetasTests.cs",
               "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\ServicioRecetasTests.cs",
               "RelativeDocumentMoniker": "..\\SistemaRecetas.Test\\ServicioRecetasTests.cs",
@@ -52,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RecetaTests.cs",
               "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\RecetaTests.cs",
               "RelativeDocumentMoniker": "..\\SistemaRecetas.Test\\RecetaTests.cs",
@@ -65,13 +65,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "GestorRecetasTests.cs",
               "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\GestorRecetasTests.cs",
               "RelativeDocumentMoniker": "..\\SistemaRecetas.Test\\GestorRecetasTests.cs",
               "ToolTip": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\GestorRecetasTests.cs",
               "RelativeToolTip": "..\\SistemaRecetas.Test\\GestorRecetasTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAUwG0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T16:05:55.503Z",
               "EditorCaption": ""
