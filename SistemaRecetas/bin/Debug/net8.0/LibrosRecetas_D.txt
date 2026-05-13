@@ -1,0 +1,16 @@
+===========================================
+  LIBROS DE RECETAS DE: D
+  Fecha: 2026-05-13 10:35:52
+===========================================
+
+📖 Libro: Dario
+   Total de recetas: 2
+   -----------------------------------
+   1. Tiramisu - Chef Bianchi (40 min)
+   2. Paella - Chef Ramírez (45 min)
+
+📖 Libro: Cocina casera
+   Total de recetas: 1
+   -----------------------------------
+   1. Tacos - Chef López (30 min)
+
