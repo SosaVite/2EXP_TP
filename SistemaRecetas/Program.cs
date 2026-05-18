@@ -72,68 +72,69 @@ namespace SistemaRecetas {
             }
         }
 
-        // === HELPERS DE CONSOLA ===
-
-        static void EscribirColor(string texto, ConsoleColor color) {
+        static void EscribirColor(string texto, ConsoleColor color, bool salto = false) {
+            var colorActual = Console.ForegroundColor;
             Console.ForegroundColor = color;
-            Console.Write(texto);
-            Console.ResetColor();
+
+            if (salto)
+                Console.WriteLine(texto);
+            else
+                Console.Write(texto);
+
+            Console.ForegroundColor = colorActual;
         }
 
         static string LeerConPrompt(string mensaje) {
-            Console.ForegroundColor = ColorEntrada;
-            Console.Write(mensaje);
-            Console.ResetColor();
+            EscribirColor(mensaje, ColorEntrada);
             return Console.ReadLine();
         }
 
         static string LeerEntradaNoVacia(string mensaje) {
             while (true) {
                 string entrada = LeerConPrompt(mensaje);
-                if (!string.IsNullOrWhiteSpace(entrada)) return entrada.Trim();
+
+                if (!string.IsNullOrWhiteSpace(entrada))
+                    return entrada.Trim();
+
                 EscribirColor("⚠️ Error: El campo no puede estar vacío. Intente de nuevo.\n", ColorError);
             }
         }
 
         static void ImprimirRecetasNumeradas(IList<Receta> recetas) {
-            Console.ForegroundColor = ColorReceta;
             for (int i = 0; i < recetas.Count; i++)
-                Console.WriteLine($"  {i + 1,3}. {recetas[i]}");
-            Console.ResetColor();
+                EscribirColor($"  {i + 1,3}. {recetas[i]}\n", ColorReceta);
         }
 
-        // === UI ===
-
         static void MostrarEncabezado() {
-            Console.ForegroundColor = ColorTitulo;
-            Console.WriteLine("╔══════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                                                          ║");
-            Console.WriteLine("║   🍳  SISTEMA DE GESTIÓN DE RECETAS DE COCINA  🍳        ║");
-            Console.WriteLine("║                                                          ║");
-            Console.WriteLine("╚══════════════════════════════════════════════════════════╝");
-            Console.ResetColor();
+            EscribirColor("╔══════════════════════════════════════════════════════════╗\n", ColorTitulo);
+            EscribirColor("║                                                          ║\n", ColorTitulo);
+            EscribirColor("║   🍳  SISTEMA DE GESTIÓN DE RECETAS DE COCINA  🍳        ║\n", ColorTitulo);
+            EscribirColor("║                                                          ║\n", ColorTitulo);
+            EscribirColor("╚══════════════════════════════════════════════════════════╝\n", ColorTitulo);
         }
 
         static void MostrarMenu(Usuario usuario, string libroActual) {
             int totalRecetas = usuario.ObtenerLibro(libroActual)?.Count ?? 0;
 
             Console.WriteLine();
+
             EscribirColor("╔══════════════ MENÚ PRINCIPAL ══════════════╗\n", ColorTitulo);
-            Console.ForegroundColor = ColorInfo;
-            Console.WriteLine($"  📖 Libro actual: '{libroActual}' ({totalRecetas} recetas)");
-            Console.ResetColor();
+
+            EscribirColor(
+                $"  📖 Libro actual: '{libroActual}' ({totalRecetas} recetas)\n",
+                ColorInfo
+            );
+
             EscribirColor("╠════════════════════════════════════════════╣\n", ColorTitulo);
 
-            Console.ForegroundColor = ColorMenu;
-            Console.WriteLine("  1. 📋 Mostrar Recetas disponibles");
-            Console.WriteLine("  2. 🔄 Ordenar libro actual (QuickSort/MergeSort)");
-            Console.WriteLine("  3. 🔍 Búsqueda binaria en catálogo");
-            Console.WriteLine("  4. ➕ Crear nuevo libro de recetas");
-            Console.WriteLine("  5. 🔀 Cambiar de libro actual");
-            Console.WriteLine("  6. 📚 Ver mis libros");
-            Console.WriteLine("  7. 💾 Exportar mis libros a archivo .txt");
-            Console.WriteLine("  8. 🚪 Salir");
-            Console.ResetColor();
+            EscribirColor("  1. 📋 Mostrar Recetas disponibles\n", ColorMenu);
+            EscribirColor("  2. 🔄 Ordenar libro actual (QuickSort/MergeSort)\n", ColorMenu);
+            EscribirColor("  3. 🔍 Búsqueda binaria en catálogo\n", ColorMenu);
+            EscribirColor("  4. ➕ Crear nuevo libro de recetas\n", ColorMenu);
+            EscribirColor("  5. 🔀 Cambiar de libro actual\n", ColorMenu);
+            EscribirColor("  6. 📚 Ver mis libros\n", ColorMenu);
+            EscribirColor("  7. 💾 Exportar mis libros a archivo .txt\n", ColorMenu);
+            EscribirColor("  8. 🚪 Salir\n", ColorMenu);
 
             EscribirColor("╚════════════════════════════════════════════╝\n", ColorTitulo);
         }
