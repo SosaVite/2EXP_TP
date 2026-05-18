@@ -4,7 +4,6 @@ using SistemaRecetas.Servicios;
 
 namespace SistemaRecetas {
     class Program {
-        // === Paleta de colores temática de cocina ===
         static readonly ConsoleColor ColorTitulo = ConsoleColor.Yellow;        
         static readonly ConsoleColor ColorExito = ConsoleColor.Green;          
         static readonly ConsoleColor ColorError = ConsoleColor.Red;            
@@ -14,8 +13,8 @@ namespace SistemaRecetas {
         static readonly ConsoleColor ColorReceta = ConsoleColor.DarkYellow;    
         static readonly ConsoleColor ColorPais = ConsoleColor.DarkCyan;        
 
-        static void Main(string[] args) {
-            // Configurar consola
+        static void Main(string[] args) 
+        {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.Title = "🍳 Sistema de Gestión de Recetas de Cocina";
 
@@ -143,7 +142,6 @@ namespace SistemaRecetas {
             gestor.AgregarReceta(new Receta("Pretzel", "Chef Weber", 40));
             gestor.AgregarReceta(new Receta("Schnitzel", "Chef Becker", 35));
 
-            // === Encabezado de bienvenida ===
             MostrarEncabezado();
 
             // === Registro de Usuario ===
