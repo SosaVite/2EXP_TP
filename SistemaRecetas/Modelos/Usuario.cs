@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SistemaRecetas.Modelos {
+﻿namespace SistemaRecetas.Modelos {
     public class Usuario {
         public string Nombre { get; set; }
         public Dictionary<string, List<Receta>> LibrosRecetas { get; set; }
