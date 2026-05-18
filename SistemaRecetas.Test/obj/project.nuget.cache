@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NWTZS86O4CQ=",
+  "dgSpecHash": "4Py28RrCr0k=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alumnos\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Alumnos\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

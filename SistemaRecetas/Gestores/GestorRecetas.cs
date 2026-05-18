@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using SistemaRecetas.Interfaces;
+﻿using SistemaRecetas.Interfaces;
 using SistemaRecetas.Modelos;
 
 namespace SistemaRecetas.Gestores {
