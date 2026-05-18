@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SistemaRecetas.Modelos;
+﻿using SistemaRecetas.Modelos;
 
 namespace SistemaRecetas.Interfaces {
     public interface IGestorRecetas {
