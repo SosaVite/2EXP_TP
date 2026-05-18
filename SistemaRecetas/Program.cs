@@ -1,20 +1,22 @@
-﻿using SistemaRecetas.Gestores;
+﻿using SistemaRecetas.Recetas;
+using SistemaRecetas.Gestores;
 using SistemaRecetas.Modelos;
 using SistemaRecetas.Servicios;
 
 namespace SistemaRecetas {
     class Program {
-        static readonly ConsoleColor ColorTitulo = ConsoleColor.Yellow;        
-        static readonly ConsoleColor ColorExito = ConsoleColor.Green;          
-        static readonly ConsoleColor ColorError = ConsoleColor.Red;            
-        static readonly ConsoleColor ColorInfo = ConsoleColor.Cyan;            
-        static readonly ConsoleColor ColorMenu = ConsoleColor.White;           
-        static readonly ConsoleColor ColorEntrada = ConsoleColor.Magenta;      
-        static readonly ConsoleColor ColorReceta = ConsoleColor.DarkYellow;    
-        static readonly ConsoleColor ColorPais = ConsoleColor.DarkCyan;        
+        // === Paleta de colores temática de cocina ===
+        static readonly ConsoleColor ColorTitulo = ConsoleColor.Yellow;
+        static readonly ConsoleColor ColorExito = ConsoleColor.Green;
+        static readonly ConsoleColor ColorError = ConsoleColor.Red;
+        static readonly ConsoleColor ColorInfo = ConsoleColor.Cyan;
+        static readonly ConsoleColor ColorMenu = ConsoleColor.White;
+        static readonly ConsoleColor ColorEntrada = ConsoleColor.Magenta;
+        static readonly ConsoleColor ColorReceta = ConsoleColor.DarkYellow;
+        static readonly ConsoleColor ColorPais = ConsoleColor.DarkCyan;
 
-        static void Main(string[] args) 
-        {
+        static void Main(string[] args) {
+            // Configurar consola
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.Title = "🍳 Sistema de Gestión de Recetas de Cocina";
 
@@ -23,125 +25,10 @@ namespace SistemaRecetas {
             var exportador = new ExportadorTxt();
             var servicio = new ServicioRecetas(gestor, exportador);
 
-            // === ESPAÑA ===
-            gestor.AgregarReceta(new Receta("Paella", "Chef Ramírez", 45));
-            gestor.AgregarReceta(new Receta("Gazpacho", "Chef Vega", 15));
-            gestor.AgregarReceta(new Receta("Tortilla Española", "Chef Sanz", 35));
-            gestor.AgregarReceta(new Receta("Churros", "Chef Navarro", 25));
-            gestor.AgregarReceta(new Receta("Fabada Asturiana", "Chef Aragón", 130));
+            // === Cargar catálogo inicial de recetas ===
+            ListaRecetas.CargarEn(gestor);
 
-            // === MÉXICO ===
-            gestor.AgregarReceta(new Receta("Tacos", "Chef López", 30));
-            gestor.AgregarReceta(new Receta("Guacamole", "Chef Hernández", 10));
-            gestor.AgregarReceta(new Receta("Chiles en Nogada", "Chef Morales", 150));
-            gestor.AgregarReceta(new Receta("Cochinita Pibil", "Chef Canul", 240));
-            gestor.AgregarReceta(new Receta("Mole Poblano", "Chef Domínguez", 180));
-
-            // === ITALIA ===
-            gestor.AgregarReceta(new Receta("Risotto", "Chef Rossi", 50));
-            gestor.AgregarReceta(new Receta("Tiramisu", "Chef Bianchi", 40));
-            gestor.AgregarReceta(new Receta("Lasagna", "Chef Romano", 75));
-            gestor.AgregarReceta(new Receta("Carbonara", "Chef Conti", 25));
-            gestor.AgregarReceta(new Receta("Osso Buco", "Chef Marino", 140));
-
-            // === PERÚ ===
-            gestor.AgregarReceta(new Receta("Ceviche", "Chef Pérez", 20));
-            gestor.AgregarReceta(new Receta("Lomo Saltado", "Chef Acurio", 35));
-            gestor.AgregarReceta(new Receta("Aji de Gallina", "Chef Quispe", 60));
-            gestor.AgregarReceta(new Receta("Causa Limeña", "Chef Salazar", 50));
-            gestor.AgregarReceta(new Receta("Anticuchos", "Chef Chávez", 45));
-
-            // === JAPÓN ===
-            gestor.AgregarReceta(new Receta("Ramen", "Chef Tanaka", 90));
-            gestor.AgregarReceta(new Receta("Sushi", "Chef Yamamoto", 60));
-            gestor.AgregarReceta(new Receta("Tempura", "Chef Sato", 30));
-            gestor.AgregarReceta(new Receta("Okonomiyaki", "Chef Watanabe", 40));
-            gestor.AgregarReceta(new Receta("Gyoza", "Chef Suzuki", 35));
-
-            // === FRANCIA ===
-            gestor.AgregarReceta(new Receta("Croissant", "Chef Dupont", 120));
-            gestor.AgregarReceta(new Receta("Ratatouille", "Chef Lefèvre", 65));
-            gestor.AgregarReceta(new Receta("Crepas", "Chef Moreau", 20));
-            gestor.AgregarReceta(new Receta("Coq au Vin", "Chef Laurent", 110));
-            gestor.AgregarReceta(new Receta("Quiche Lorraine", "Chef Girard", 55));
-
-            // === TAILANDIA ===
-            gestor.AgregarReceta(new Receta("Pad Thai", "Chef Suwan", 25));
-            gestor.AgregarReceta(new Receta("Tom Yum", "Chef Chaiyo", 25));
-            gestor.AgregarReceta(new Receta("Curry Verde", "Chef Anong", 45));
-            gestor.AgregarReceta(new Receta("Som Tam", "Chef Niran", 15));
-            gestor.AgregarReceta(new Receta("Mango Sticky Rice", "Chef Kanya", 50));
-
-            // === ARGENTINA ===
-            gestor.AgregarReceta(new Receta("Empanadas", "Chef Gómez", 55));
-            gestor.AgregarReceta(new Receta("Asado", "Chef Fernández", 180));
-            gestor.AgregarReceta(new Receta("Milanesa", "Chef Rodríguez", 40));
-            gestor.AgregarReceta(new Receta("Chimichurri", "Chef Sosa", 10));
-            gestor.AgregarReceta(new Receta("Alfajores", "Chef Martínez", 60));
-
-            // === MEDIO ORIENTE ===
-            gestor.AgregarReceta(new Receta("Hummus", "Chef Khalil", 15));
-            gestor.AgregarReceta(new Receta("Falafel", "Chef Mansour", 35));
-            gestor.AgregarReceta(new Receta("Tabbouleh", "Chef Haddad", 20));
-            gestor.AgregarReceta(new Receta("Shawarma", "Chef Aziz", 90));
-            gestor.AgregarReceta(new Receta("Baklava", "Chef Demir", 75));
-
-            // === HUNGRÍA ===
-            gestor.AgregarReceta(new Receta("Goulash", "Chef Kovács", 110));
-            gestor.AgregarReceta(new Receta("Langos", "Chef Nagy", 60));
-            gestor.AgregarReceta(new Receta("Paprikash", "Chef Szabó", 80));
-            gestor.AgregarReceta(new Receta("Dobos Torte", "Chef Horváth", 150));
-            gestor.AgregarReceta(new Receta("Halászlé", "Chef Tóth", 70));
-
-            // === VIETNAM ===
-            gestor.AgregarReceta(new Receta("Pho", "Chef Nguyen", 180));
-            gestor.AgregarReceta(new Receta("Banh Mi", "Chef Tran", 25));
-            gestor.AgregarReceta(new Receta("Bun Cha", "Chef Le", 50));
-            gestor.AgregarReceta(new Receta("Goi Cuon", "Chef Pham", 20));
-            gestor.AgregarReceta(new Receta("Ca Kho To", "Chef Hoang", 95));
-
-            // === GRECIA ===
-            gestor.AgregarReceta(new Receta("Moussaka", "Chef Papadopoulos", 95));
-            gestor.AgregarReceta(new Receta("Souvlaki", "Chef Dimitriou", 40));
-            gestor.AgregarReceta(new Receta("Tzatziki", "Chef Andreou", 15));
-            gestor.AgregarReceta(new Receta("Spanakopita", "Chef Georgiou", 70));
-            gestor.AgregarReceta(new Receta("Dolmades", "Chef Nikolaou", 85));
-
-            // === RUSIA ===
-            gestor.AgregarReceta(new Receta("Borscht", "Chef Ivanov", 80));
-            gestor.AgregarReceta(new Receta("Beef Stroganoff", "Chef Petrov", 60));
-            gestor.AgregarReceta(new Receta("Blini", "Chef Smirnov", 30));
-            gestor.AgregarReceta(new Receta("Pelmeni", "Chef Volkov", 90));
-            gestor.AgregarReceta(new Receta("Olivier", "Chef Sokolov", 45));
-
-            // === COREA ===
-            gestor.AgregarReceta(new Receta("Bibimbap", "Chef Kim", 40));
-            gestor.AgregarReceta(new Receta("Kimchi", "Chef Park", 120));
-            gestor.AgregarReceta(new Receta("Bulgogi", "Chef Lee", 55));
-            gestor.AgregarReceta(new Receta("Tteokbokki", "Chef Choi", 30));
-            gestor.AgregarReceta(new Receta("Japchae", "Chef Jung", 50));
-
-            // === POLONIA ===
-            gestor.AgregarReceta(new Receta("Pierogi", "Chef Kowalski", 70));
-            gestor.AgregarReceta(new Receta("Bigos", "Chef Nowak", 180));
-            gestor.AgregarReceta(new Receta("Zurek", "Chef Wójcik", 90));
-            gestor.AgregarReceta(new Receta("Golabki", "Chef Lewandowski", 120));
-            gestor.AgregarReceta(new Receta("Sernik", "Chef Wiśniewski", 95));
-
-            // === INDIA ===
-            gestor.AgregarReceta(new Receta("Biryani", "Chef Khan", 100));
-            gestor.AgregarReceta(new Receta("Tikka Masala", "Chef Sharma", 65));
-            gestor.AgregarReceta(new Receta("Samosas", "Chef Patel", 45));
-            gestor.AgregarReceta(new Receta("Naan", "Chef Singh", 30));
-            gestor.AgregarReceta(new Receta("Dal Makhani", "Chef Gupta", 85));
-
-            // === ALEMANIA ===
-            gestor.AgregarReceta(new Receta("Cheesecake", "Chef Müller", 85));
-            gestor.AgregarReceta(new Receta("Bratwurst", "Chef Schmidt", 25));
-            gestor.AgregarReceta(new Receta("Sauerbraten", "Chef Fischer", 200));
-            gestor.AgregarReceta(new Receta("Pretzel", "Chef Weber", 40));
-            gestor.AgregarReceta(new Receta("Schnitzel", "Chef Becker", 35));
-
+            // === Encabezado de bienvenida ===
             MostrarEncabezado();
 
             // === Registro de Usuario ===
@@ -161,53 +48,61 @@ namespace SistemaRecetas {
             // === Menú Principal ===
             while (!salir) {
                 MostrarMenu(usuario, libroActual);
-                Console.ForegroundColor = ColorEntrada;
-                Console.Write("Seleccione una opción: ");
-                Console.ResetColor();
+                string entrada = LeerConPrompt("Seleccione una opción: ");
 
-                if (!int.TryParse(Console.ReadLine(), out int opcion)) {
-                    EscribirColor("⚠ Opción no válida.\n", ColorError);
+                if (!int.TryParse(entrada, out int opcion)) {
+                    EscribirColor("⚠️ Opción no válida.\n", ColorError);
                     continue;
                 }
 
                 switch (opcion) {
-                    case 1:
-                        MostrarRecetasDisponibles(gestor);
-                        break;
-                    case 2:
-                        OrdenarLibroActual(servicio, usuario, libroActual);
-                        break;
-                    case 3:
-                        BusquedaBinariaEnCatalogo(gestor, usuario, libroActual);
-                        break;
-                    case 4:
-                        libroActual = CrearNuevoLibro(usuario, libroActual);
-                        break;
-                    case 5:
-                        libroActual = CambiarDeLibro(usuario, libroActual);
-                        break;
-                    case 6:
-                        MostrarLibrosUsuario(usuario);
-                        break;
-                    case 7:
-                        ExportarLibros(exportador, usuario);
-                        break;
+                    case 1: MostrarRecetasDisponibles(gestor); break;
+                    case 2: OrdenarLibroActual(servicio, usuario, libroActual); break;
+                    case 3: BusquedaBinariaEnCatalogo(gestor, usuario, libroActual); break;
+                    case 4: libroActual = CrearNuevoLibro(usuario, libroActual); break;
+                    case 5: libroActual = CambiarDeLibro(usuario, libroActual); break;
+                    case 6: MostrarLibrosUsuario(usuario); break;
+                    case 7: ExportarLibros(exportador, usuario); break;
                     case 8:
                         salir = true;
-                        EscribirColor("\n¡Hasta luego! Buen provecho 🍽\n", ColorTitulo);
+                        EscribirColor("\n¡Hasta luego! Buen provecho 🍽️\n", ColorTitulo);
                         break;
-                    default:
-                        EscribirColor("⚠ Opción no válida.\n", ColorError);
-                        break;
+                    default: EscribirColor("⚠️ Opción no válida.\n", ColorError); break;
                 }
             }
         }
+
+        // === HELPERS DE CONSOLA ===
 
         static void EscribirColor(string texto, ConsoleColor color) {
             Console.ForegroundColor = color;
             Console.Write(texto);
             Console.ResetColor();
         }
+
+        static string LeerConPrompt(string mensaje) {
+            Console.ForegroundColor = ColorEntrada;
+            Console.Write(mensaje);
+            Console.ResetColor();
+            return Console.ReadLine();
+        }
+
+        static string LeerEntradaNoVacia(string mensaje) {
+            while (true) {
+                string entrada = LeerConPrompt(mensaje);
+                if (!string.IsNullOrWhiteSpace(entrada)) return entrada.Trim();
+                EscribirColor("⚠️ Error: El campo no puede estar vacío. Intente de nuevo.\n", ColorError);
+            }
+        }
+
+        static void ImprimirRecetasNumeradas(IList<Receta> recetas) {
+            Console.ForegroundColor = ColorReceta;
+            for (int i = 0; i < recetas.Count; i++)
+                Console.WriteLine($"  {i + 1,3}. {recetas[i]}");
+            Console.ResetColor();
+        }
+
+        // === UI ===
 
         static void MostrarEncabezado() {
             Console.ForegroundColor = ColorTitulo;
@@ -243,23 +138,6 @@ namespace SistemaRecetas {
             EscribirColor("╚════════════════════════════════════════════╝\n", ColorTitulo);
         }
 
-        // === Método auxiliar para validar entradas no vacías ===
-        static string LeerEntradaNoVacia(string mensaje) {
-            string entrada;
-            while (true) {
-                Console.ForegroundColor = ColorEntrada;
-                Console.Write(mensaje);
-                Console.ResetColor();
-                entrada = Console.ReadLine();
-
-                if (!string.IsNullOrWhiteSpace(entrada)) {
-                    return entrada.Trim();
-                }
-
-                EscribirColor("⚠ Error: El campo no puede estar vacío. Intente de nuevo.\n", ColorError);
-            }
-        }
-
         // === FUNCIONES DEL MENÚ ===
 
         static void MostrarRecetasDisponibles(GestorRecetas gestor) {
@@ -270,23 +148,16 @@ namespace SistemaRecetas {
                 return;
             }
 
-            Console.ForegroundColor = ColorReceta;
-            for (int i = 0; i < gestor.RecetasDisponibles.Count; i++)
-                Console.WriteLine($"  {i + 1,3}. {gestor.RecetasDisponibles[i].ToString()}");
-            Console.ResetColor();
-
+            ImprimirRecetasNumeradas(gestor.RecetasDisponibles);
             EscribirColor($"\nTotal: {gestor.RecetasDisponibles.Count} recetas en el catálogo.\n", ColorInfo);
         }
 
         static void OrdenarLibroActual(ServicioRecetas servicio, Usuario usuario, string libroActual) {
-            Console.ForegroundColor = ColorEntrada;
-            Console.Write("Elija algoritmo (quick/merge): ");
-            Console.ResetColor();
-            string tipo = Console.ReadLine();
+            string tipo = LeerConPrompt("Elija algoritmo (quick/merge): ");
 
             var libro = usuario.ObtenerLibro(libroActual);
             if (libro == null || libro.Count == 0) {
-                EscribirColor("⚠ El libro está vacío. No hay nada que ordenar.\n", ColorError);
+                EscribirColor("⚠️ El libro está vacío. No hay nada que ordenar.\n", ColorError);
                 return;
             }
 
@@ -298,20 +169,19 @@ namespace SistemaRecetas {
                 usuario.LibrosRecetas[libroActual] = ordenada;
                 EscribirColor("✓ Libro ordenado con MergeSort.\n", ColorExito);
             } else {
-                EscribirColor("⚠ Algoritmo no válido. Use 'quick' o 'merge'.\n", ColorError);
+                EscribirColor("⚠️ Algoritmo no válido. Use 'quick' o 'merge'.\n", ColorError);
                 return;
             }
 
-            int totalMinutos = 0;
-            foreach (var r in usuario.ObtenerLibro(libroActual))
-                totalMinutos += r.TiempoMinutos;
+            var libroOrdenado = usuario.ObtenerLibro(libroActual);
+            int totalMinutos = libroOrdenado.Sum(r => r.TiempoMinutos);
 
-            EscribirColor($"\n⏱ Tiempo total de recetas en '{libroActual}': {totalMinutos} minutos\n", ColorInfo);
+            EscribirColor($"\n⏱️ Tiempo total de recetas en '{libroActual}': {totalMinutos} minutos\n", ColorInfo);
             EscribirColor("Recetas ordenadas:\n", ColorTitulo);
 
             Console.ForegroundColor = ColorReceta;
-            foreach (var r in usuario.ObtenerLibro(libroActual))
-                Console.WriteLine($"   - {r.ToString()}");
+            foreach (var r in libroOrdenado)
+                Console.WriteLine($"   - {r}");
             Console.ResetColor();
         }
 
@@ -319,24 +189,17 @@ namespace SistemaRecetas {
             string nombre = LeerEntradaNoVacia("Ingrese el nombre exacto de la receta a buscar: ");
 
             int indice = gestor.BusquedaBinaria(nombre);
-
             if (indice == -1) {
                 EscribirColor($"✗ No se encontró la receta '{nombre}' en el catálogo.\n", ColorError);
                 return;
             }
 
             EscribirColor("\n✓ Receta encontrada. Catálogo completo:\n", ColorExito);
+            ImprimirRecetasNumeradas(gestor.RecetasDisponibles);
 
-            Console.ForegroundColor = ColorReceta;
-            for (int i = 0; i < gestor.RecetasDisponibles.Count; i++)
-                Console.WriteLine($"  {i + 1,3}. {gestor.RecetasDisponibles[i].ToString()}");
-            Console.ResetColor();
+            string respuesta = LeerConPrompt($"\nIngrese el índice de la receta para agregarla a '{libroActual}' (0 para cancelar): ");
 
-            Console.ForegroundColor = ColorEntrada;
-            Console.Write($"\nIngrese el índice de la receta para agregarla a '{libroActual}' (0 para cancelar): ");
-            Console.ResetColor();
-
-            if (int.TryParse(Console.ReadLine(), out int indiceElegido)) {
+            if (int.TryParse(respuesta, out int indiceElegido)) {
                 if (indiceElegido == 0) {
                     EscribirColor("Operación cancelada.\n", ColorInfo);
                     return;
@@ -346,7 +209,7 @@ namespace SistemaRecetas {
                     usuario.AgregarRecetaALibro(libroActual, receta);
                     EscribirColor($"✓ Receta '{receta.Nombre}' agregada a '{libroActual}'.\n", ColorExito);
                 } else {
-                    EscribirColor("⚠ Índice fuera de rango.\n", ColorError);
+                    EscribirColor("⚠️ Índice fuera de rango.\n", ColorError);
                 }
             }
         }
@@ -365,7 +228,7 @@ namespace SistemaRecetas {
 
         static string CambiarDeLibro(Usuario usuario, string libroActual) {
             if (usuario.LibrosRecetas.Count == 0) {
-                EscribirColor("⚠ No tienes libros.\n", ColorError);
+                EscribirColor("⚠️ No tienes libros.\n", ColorError);
                 return libroActual;
             }
 
@@ -387,7 +250,7 @@ namespace SistemaRecetas {
 
         static void MostrarLibrosUsuario(Usuario usuario) {
             if (usuario.LibrosRecetas.Count == 0) {
-                EscribirColor("⚠ No tienes libros de recetas.\n", ColorError);
+                EscribirColor("⚠️ No tienes libros de recetas.\n", ColorError);
                 return;
             }
 
@@ -401,7 +264,7 @@ namespace SistemaRecetas {
                 } else {
                     Console.ForegroundColor = ColorReceta;
                     foreach (var receta in libro.Value)
-                        Console.WriteLine($"   - {receta.ToString()}");
+                        Console.WriteLine($"   - {receta}");
                     Console.ResetColor();
                 }
             }

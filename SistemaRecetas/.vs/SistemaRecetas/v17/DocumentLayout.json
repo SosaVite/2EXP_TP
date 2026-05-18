@@ -1,10 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas\\",
+  "WorkspaceRootPath": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\examenparcialp2\\sistemarecetas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\recetas\\listarecetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:recetas\\listarecetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A13C8ED-1E73-461C-B970-5AF535136A8D}|..\\SistemaRecetas.Test\\SistemaGestionRecetas.Tests.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas.test\\gestorrecetastests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\modelos\\receta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:modelos\\receta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\modelos\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:modelos\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\gestores\\gestorrecetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:gestores\\gestorrecetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\interfaces\\igestorrecetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:interfaces\\igestorrecetas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\interfaces\\ireceta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:interfaces\\ireceta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|c:\\users\\alumnos\\documents\\prueba descarga\\sistemarecetas\\interfaces\\iexportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C78CCEF-A3D6-4352-8DD7-2B99C4B4A9B7}|SistemaRecetas.csproj|solutionrelative:interfaces\\iexportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,17 +45,125 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ListaRecetas.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Recetas\\ListaRecetas.cs",
+              "RelativeDocumentMoniker": "Recetas\\ListaRecetas.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Recetas\\ListaRecetas.cs",
+              "RelativeToolTip": "Recetas\\ListaRecetas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:58:26.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GestorRecetasTests.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas.Test\\GestorRecetasTests.cs",
+              "RelativeDocumentMoniker": "..\\SistemaRecetas.Test\\GestorRecetasTests.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas.Test\\GestorRecetasTests.cs",
+              "RelativeToolTip": "..\\SistemaRecetas.Test\\GestorRecetasTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:44:45.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Modelos\\Usuario.cs",
+              "RelativeDocumentMoniker": "Modelos\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Modelos\\Usuario.cs",
+              "RelativeToolTip": "Modelos\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:41:13.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Receta.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Modelos\\Receta.cs",
+              "RelativeDocumentMoniker": "Modelos\\Receta.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Modelos\\Receta.cs",
+              "RelativeToolTip": "Modelos\\Receta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:40:48.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IReceta.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Interfaces\\IReceta.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IReceta.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Interfaces\\IReceta.cs",
+              "RelativeToolTip": "Interfaces\\IReceta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:40:42.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IGestorRecetas.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Interfaces\\IGestorRecetas.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IGestorRecetas.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Interfaces\\IGestorRecetas.cs",
+              "RelativeToolTip": "Interfaces\\IGestorRecetas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:39:59.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IExportador.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Interfaces\\IExportador.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IExportador.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Interfaces\\IExportador.cs",
+              "RelativeToolTip": "Interfaces\\IExportador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:39:55.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GestorRecetas.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Gestores\\GestorRecetas.cs",
+              "RelativeDocumentMoniker": "Gestores\\GestorRecetas.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Gestores\\GestorRecetas.cs",
+              "RelativeToolTip": "Gestores\\GestorRecetas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:38:25.63Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Alumnos\\Documents\\ExamenParcialP2\\SistemaRecetas\\Program.cs",
+              "ToolTip": "C:\\Users\\Alumnos\\Documents\\Prueba descarga\\SistemaRecetas\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACUBAAAAAAAAAAAuwAcBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T16:17:01.01Z",
               "EditorCaption": ""
