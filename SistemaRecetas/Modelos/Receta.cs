@@ -1,5 +1,4 @@
-﻿using System;
-using SistemaRecetas.Interfaces;
+﻿using SistemaRecetas.Interfaces;
 
 namespace SistemaRecetas.Modelos {
     public class Receta : IReceta {
