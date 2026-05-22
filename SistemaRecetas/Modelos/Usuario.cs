@@ -19,6 +19,9 @@
             if (!LibrosRecetas.TryGetValue(nombreLibro, out var lista))
                 throw new KeyNotFoundException($"El libro '{nombreLibro}' no existe.");
 
+            if (lista.Contains(receta))
+                throw new InvalidOperationException($"La receta '{receta.Nombre}' ya está en este libro.");
+
             lista.Add(receta);
         }
 

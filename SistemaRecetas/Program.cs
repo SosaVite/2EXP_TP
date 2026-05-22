@@ -207,8 +207,12 @@ namespace SistemaRecetas {
                 }
                 if (indiceElegido >= 1 && indiceElegido <= gestor.RecetasDisponibles.Count) {
                     var receta = gestor.RecetasDisponibles[indiceElegido - 1];
-                    usuario.AgregarRecetaALibro(libroActual, receta);
-                    EscribirColor($"✓ Receta '{receta.Nombre}' agregada a '{libroActual}'.\n", ColorExito);
+                    try {
+                        usuario.AgregarRecetaALibro(libroActual, receta);
+                        EscribirColor($"✓ Receta '{receta.Nombre}' agregada a '{libroActual}'.\n", ColorExito);
+                    } catch (InvalidOperationException ex) {
+                        EscribirColor($"⚠️ {ex.Message}\n", ColorError);
+                    }
                 } else {
                     EscribirColor("⚠️ Índice fuera de rango.\n", ColorError);
                 }
